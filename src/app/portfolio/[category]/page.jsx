@@ -15,26 +15,21 @@ const getData = (cat) => {
   return notFound();
 };
 
-const Category = ({ params }) => {
-  const data = getData(params.category);
+const Category = async ({ params }) => {
+  const data = await getData(params.category);
+
   return (
     <div className={styles.container}>
       <h1 className={styles.catTitle}>{params.category}</h1>
-
       {data.map((item) => (
         <div className={styles.item} key={item.id}>
           <div className={styles.content}>
             <h1 className={styles.title}>{item.title}</h1>
             <p className={styles.desc}>{item.desc}</p>
-            <Button text="See More" url="#" />
+            <Button text='See More' url='#' />
           </div>
           <div className={styles.imgContainer}>
-            <Image
-              className={styles.img}
-              fill={true}
-              src={item.image}
-              alt=""
-            />
+            <Image className={styles.image} fill={true} src={item.image} alt='' /> : <Image className={styles.image} fill={true} src={item.image ? item.image : "https://educative.io/v2api/editorpage/6452289848475648/image/5294398307303424"} alt='' />
           </div>
         </div>
       ))}

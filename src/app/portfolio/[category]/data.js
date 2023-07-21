@@ -28,7 +28,7 @@ export const items = {
       title: "Creative Portfolio",
       desc: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur vel tenetur necessitatibus unde natus perspiciatis, amet cupiditate ducimus possimus, eaque ex autem id nobis eum dolorem. Neque eveniet fugiat tenetur?",
       image:
-        "https://images.pexels.com/photos/3130810/pexels-photo-3130810.jpeg",
+        "https://educative.io/v2api/editorpage/6452289848475648/image/5294398307303424",
     },
     {
       id: 2,
