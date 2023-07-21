@@ -3,7 +3,7 @@ import styles from "./page.module.css";
 import Image from "next/image";
 
 async function getData(id) {
-  const res = await fetch(`https:/jsonplaceholder.typicode.com/posts/${id}`, { cache: "no-store" });
+  const res = await fetch(`http://localhost:3000/api/posts/${id}`, { cache: "no-store" });
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
     return notFound();
@@ -21,16 +21,16 @@ const BlogPost = async ({ params }) => {
           <h1 className={styles.title}>{data.title}</h1>
           <p className={styles.desc}>{data.body}</p>
           <div className={styles.author}>
-            <Image src={"https://educative.io/v2api/editorpage/6452289848475648/image/5294398307303424"} alt='' width={40} height={40} className={styles.avatar} />
-            <span className={styles.username}>Alex</span>
+            <Image src={data.img} alt='' width={40} height={40} className={styles.avatar} />
+            <span className={styles.username}>{data.username}</span>
           </div>
         </div>
         <div className={styles.imageContainer}>
-          <Image src={"https://educative.io/v2api/editorpage/6452289848475648/image/5294398307303424"} alt='' fill={true} className={styles.image} />
+          <Image src={data.img} alt='' fill={true} className={styles.image} />
         </div>
       </div>
       <div className={styles.content}>
-        <p className={styles.text}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, ipsum alias. Reprehenderit sed, quis eos excepturi libero voluptates suscipit perferendis quas in quod, molestias sint non, aut quidem. Reprehenderit, ratione.</p>
+        <p className={styles.text}>{data.desc}</p>
       </div>
     </div>
   );
